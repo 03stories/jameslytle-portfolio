@@ -79,7 +79,7 @@ export const getAboutContent = (): AboutContent => {
 export const getHomeContent = (): HomeContent => {
   const homePath = path.join(contentDirectory, 'home', 'home.md')
   const fileContents = fs.readFileSync(homePath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const { data } = matter(fileContents)
   
   return {
     title: data.title,

@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getHomeContent, getProjects, getProjectBySlug } from '@/utils/contentLoader'
+import { getHomeContent, getProjectBySlug } from '@/utils/contentLoader'
 import ProjectCard from '@/components/ui/ProjectCard'
 
 const HomePage = () => {
   const { title, subtitle, featuredProjects } = getHomeContent()
-  const allProjects = getProjects()
   
   const featured = featuredProjects
     .map(slug => getProjectBySlug(slug))
