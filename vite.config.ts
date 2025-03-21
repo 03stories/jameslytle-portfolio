@@ -29,7 +29,10 @@ function loadProjects() {
         title: data.title,
         date: data.date,
         description: data.description,
-        featuredImage: data.featuredImage,
+        // Add the base path prefix to image paths
+        featuredImage: process.env.NODE_ENV === 'production' 
+          ? `/jameslytle-portfolio${data.featuredImage}` 
+          : data.featuredImage,
         content,
         slug: folder
       }
@@ -53,8 +56,13 @@ function loadAboutContent() {
   return {
     title: data.title,
     content,
-    image: data.image,
-    resume: data.resume
+    // Add the base path prefix to image paths
+    image: process.env.NODE_ENV === 'production' 
+      ? `/jameslytle-portfolio${data.image}` 
+      : data.image,
+    resume: process.env.NODE_ENV === 'production' 
+      ? `/jameslytle-portfolio${data.resume}` 
+      : data.resume
   }
 }
 
@@ -77,6 +85,8 @@ function loadHomeContent() {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Set base path conditionally - empty for dev, '/jameslytle-portfolio/' for production
+  base: process.env.NODE_ENV === 'production' ? '/jameslytle-portfolio/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
