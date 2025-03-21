@@ -1,6 +1,6 @@
 ---
 title: About James Lytle
-image: /content/about/jl-headshot-sm.jpg
+image: /content/about/james-prof-1.jpg
 resume: /content/about/james-lytle-resume-2020.pdf
 ---
 
